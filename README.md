@@ -1,4 +1,5 @@
-<!-- markdownlint-disable MD029 -->
+<!-- markdownlint-disable-file MD029 -->
+
 # 1. Proyecto final - SpringBoot - ip-locator
 
 Este es el proyecto final de la clase híbrida llamada Modern Cloud Engineering.
@@ -6,7 +7,8 @@ Este es el proyecto final de la clase híbrida llamada Modern Cloud Engineering.
 - [1. Proyecto final - SpringBoot - ip-locator](#1-proyecto-final---springboot---ip-locator)
   - [1.1. Integrantes](#11-integrantes)
   - [1.2. Requerimientos del proyecto](#12-requerimientos-del-proyecto)
-  - [1.3. Explicación del código](#13-explicación-del-código)
+  - [1.3. Recursos de apoyo](#13-recursos-de-apoyo)
+  - [1.4. Explicación del código](#14-explicación-del-código)
 
 ## 1.1. Integrantes
 <!-- TODO: Agregar el nombre completo de Sheila -->
@@ -68,16 +70,16 @@ $.get("http://myservicio", function(data) {
 
 ```mermaid
 sequenceDiagram
-    actor Usuario
+    actor usr as Actor
     participant Página web
     participant iframe
     participant LocationService
     participant API ipify
     participant API ipinfo
 
-    Usuario->>Página web: Clic en el botón
+    usr->>Página web: Clic en el botón
     activate Página web
-    activate Usuario
+    activate usr
     Página web->>+LocationService: GET /location
     LocationService->>+API ipify: GET https://api.ipify.org/?format=json
     API ipify-->>-LocationService: La IP del usuario
@@ -87,7 +89,7 @@ sequenceDiagram
     LocationService-->>-Página web: La URL del mapa
     Página web->>iframe: Cambiar la URL del iframe
     deactivate Página web
-    deactivate Usuario
+    deactivate usr
 ```
 
 Entregar el código fuente (proyecto del servicio) en un archivo ``zip``
@@ -100,11 +102,22 @@ Incluir un archivo ``readme.txt`` con las instrucciones para levantar y probar e
 
 Tema: UADY | Proyecto Final SpringBoot | **nombre**
 
-Enviar a: [j.a.aguilar.puch@accenture.com][mailaguilar]
+Enviar a: [j.a.aguilar.puch@accenture.com][mail:aguilar]
 
-Con copia: [yadira.p.velazquez@accenture.com][mail_yadira]
+Con copia: [yadira.p.velazquez@accenture.com][mail:yadira]
 
-## 1.3. Explicación del código
+## 1.3. Recursos de apoyo
 
-[mail_yadira]: mailto:yadira.p.velazquez@accenture.com
-[mailaguilar]: mailto:j.a.aguilar.puch@accenture.com
+Se utilizarán los siguientes recursos para el desarrollo del proyecto:
+
+- [*Curso de Arquitectura Java Spring Boot*][url:arquitecturajava]
+- [*Spring Boot - MitoCode*][url:MitoCode]
+- [*Curso Spring Boot desde cero (Framework Java) - Brain Data Center*][url:BrainDataCenter]
+
+## 1.4. Explicación del código
+
+[mail:yadira]: mailto:yadira.p.velazquez@accenture.com
+[mail:aguilar]: mailto:j.a.aguilar.puch@accenture.com
+[url:arquitecturajava]: https://cursos.arquitecturajava.com/p/spring-boot1
+[url:MitoCode]: https://youtube.com/playlist?list=PLvimn1Ins-40wR4PC-YtTQ5TKt3vRrVwl
+[url:BrainDataCenter]: https://youtube.com/playlist?list=PLCIjncxyvEHbSAhlMhSrMROJtg1s_tlG8
