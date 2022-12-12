@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ubicación IP</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://cdn-icons-png.flaticon.com/512/535/535137.png"
+    />
+    <script src="code.js" text="text/javascript"></script>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Localizador de IP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="code.js"></script>
-
-</head>
-
-<body>
+  <body>
     <header>Proyecto final - SpringBoot - ip-locator</header>
-    <h1>Localizador de IP</h1>
+    <h1 class="mi-titulo">Localizador de IP</h1>
 
     <p>Da clic en el siguiente botón para mostrar tu ubicación</p>
-    <button onclick="console.log('g')" type="button">¿En donde estoy?</button>
+    <button onclick="console.log('g')" type="button" id="search-location">
+      ¿En donde estoy?
+    </button>
     <br />
     <br />
     <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238419.64573447529!2d-89.77300580653153!3d20.980328886418878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56715cab450d17%3A0x5dfc155715abeb09!2zTcOpcmlkYSwgWXVjLg!5e0!3m2!1ses!2smx!4v1670829685534!5m2!1ses!2smx"
-        width="100%" height="400px" allowfullscreen="" title="Mapa de ubicación"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238419.64573447529!2d-89.77300580653153!3d20.980328886418878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56715cab450d17%3A0x5dfc155715abeb09!2zTcOpcmlkYSwgWXVjLg!5e0!3m2!1ses!2smx!4v1670829685534!5m2!1ses!2smx"
+      id="mapa-ip"
+      width="100%"
+      height="400px"
+      allowfullscreen=""
+      title="Mapa de ubicación"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
     <br />
-    <footer class="row mx-auto tm-footer">
-        Alumnos del proyecto:
-        <ul>
-            <li>Roger</li>
-            <li>Karla</li>
-            <li>Sheila</li>
-        </ul>
+    <footer>
+      Alumnos del proyecto:
+      <ul id="estudiantes">
+        <li class="nombre-estudiante">Roger</li>
+        <li class="nombre-estudiante">Karla</li>
+        <li class="nombre-estudiante">Sheila</li>
+      </ul>
     </footer>
-</body>
+  </body>
+</html>

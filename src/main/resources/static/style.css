@@ -1,48 +1,61 @@
 body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
-    margin: 0;
-    padding: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    padding: 10px;
-    text-align: center;
-    background: #1abc9c;
-    color: white;
-    font-size: 30px;
+  padding: 10px;
+  text-align: center;
+  background: rgb(26, 188, 156);
+  color: rgb(253, 255, 252);
+  font-size: 30px;
 }
 
 h1 {
-    color: rgb(54, 184, 113);
+  color: rgb(54, 184, 113);
 }
 
-iframe {
-    border: 0;
+#mapa-ip {
+  border: 0;
+}
+
+#search-location {
+  background-color: rgb(26, 188, 156);
+  border: none;
+  color: rgb(253, 255, 252);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 body {
-    background-image: url("https://www.w3schools.com/w3css/img_lights.jpg");
-    /* Add local image */
-    background-image: url("img/tm-astro-bg.jpg");
-    background-repeat: repeat;
-    background-size: cover;
+  /* DRAFT: Igual esta esta otra imagen para escoger en su lugar */
+  /* background-image: url("https://www.w3schools.com/w3css/img_lights.jpg"); */
+  background-image: url("img/tm-astro-bg.jpg");
+  background-repeat: repeat;
+  background-size: cover;
 }
 
-/* Horizontal unordered list items*/
-ul {
-    list-style-type: none;
-    margin: 5px;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgba(9, 255, 70, 0.25);
+ul#estudiantes {
+  list-style-type: none;
+  margin: 5px;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(10, 117, 153, 0.575);
 }
 
-li {
-    float: left;
-    width: 33.3%;
+li.nombre-estudiante {
+  float: left;
+  width: 33.3%;
 }
