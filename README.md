@@ -22,7 +22,7 @@ Diseñar una página web que muestre tu dirección en un mapa en base a la IP
 
 La página web debe de ser de la siguiente manera:
 
-![Captura de ejemplo del resultado de la aplicación](imgs/example.png)
+![Captura de ejemplo del resultado de la aplicación](img/example.png)
 
 Para ello se deberá elaborar una aplicación en *Spring Boot* que cumpla con dos cosas:
 

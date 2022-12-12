@@ -1,0 +1,48 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 10px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+}
+
+h1 {
+    color: rgb(54, 184, 113);
+}
+
+iframe {
+    border: 0;
+}
+
+body {
+    background-image: url("https://www.w3schools.com/w3css/img_lights.jpg");
+    /* Add local image */
+    background-image: url("img/tm-astro-bg.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+/* Horizontal unordered list items*/
+ul {
+    list-style-type: none;
+    margin: 5px;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(9, 255, 70, 0.25);
+}
+
+li {
+    float: left;
+    width: 33.3%;
+}
