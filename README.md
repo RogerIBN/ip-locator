@@ -114,6 +114,11 @@ Se utilizarán los siguientes recursos para el desarrollo del proyecto:
 - [*Spring Boot - MitoCode*][url:MitoCode]
 - [*Curso Spring Boot desde cero (Framework Java) - Brain Data Center*][url:BrainDataCenter]
 
+Y como recursos adicionales:
+
+- [*Spring Boot*][springio]
+- [*Spring Boot Microservices Level 1: Communication and Discovery - Java Brains*][javabrains]
+
 ## 1.4. Explicación del código
 
 [mail:yadira]: mailto:yadira.p.velazquez@accenture.com
@@ -121,3 +126,5 @@ Se utilizarán los siguientes recursos para el desarrollo del proyecto:
 [url:arquitecturajava]: https://cursos.arquitecturajava.com/p/spring-boot1
 [url:MitoCode]: https://youtube.com/playlist?list=PLvimn1Ins-40wR4PC-YtTQ5TKt3vRrVwl
 [url:BrainDataCenter]: https://youtube.com/playlist?list=PLCIjncxyvEHbSAhlMhSrMROJtg1s_tlG8
+[javabrains]: https://youtube.com/playlist?list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas
+[springio]: https://spring.io/projects/spring-boot
