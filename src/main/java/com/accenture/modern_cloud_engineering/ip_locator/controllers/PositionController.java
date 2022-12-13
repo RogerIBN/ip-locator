@@ -12,13 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.accenture.modern_cloud_engineering.ip_locator.models.GeoData;
 import com.accenture.modern_cloud_engineering.ip_locator.models.OpenStreetMap;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 public class PositionController {
     /**
      * Get the user's position using the ipify and ipinfo APIs
-     * 
+     *
      * @return
      * @throws IOException
      * @throws InterruptedException
@@ -27,48 +29,26 @@ public class PositionController {
     @GetMapping("api/v1/position")
     public OpenStreetMap getUserPosition() throws IOException, InterruptedException {
 
-        String ipifyEndPoint = "https://api.ipify.org?format=json";
+        // 1. Request the public IP address from ipify.org
         String ipAddress = null;
 
         try {
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(ipifyEndPoint))
-                    .build();
-
-            HttpResponse<String> response = HttpClient.newHttpClient()
-                    .send(request, HttpResponse.BodyHandlers.ofString());
-
-            String ipifyResponse = response.body();
-
-            ObjectMapper mapper = new ObjectMapper();
-            ipAddress = mapper.readTree(ipifyResponse).get("ip").asText();
+            ipAddress = getIpAddress();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        String ipinfoEndPoint = "https://ipinfo.io/" + ipAddress + "/geo";
-        GeoData geoData = null;
+        // 2. Request the geographic data from ipinfo.io
+        String latitude = null;
+        String longitude = null;
 
         try {
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(ipinfoEndPoint))
-                    .build();
-
-            HttpResponse<String> response = HttpClient.newHttpClient()
-                    .send(request, HttpResponse.BodyHandlers.ofString());
-
-            String ipinfoResponse = response.body();
-
-            ObjectMapper mapper = new ObjectMapper();
-            geoData = mapper.readValue(ipinfoResponse, GeoData.class);
+            String[] position = getPosition(ipAddress);
+            latitude = position[0];
+            longitude = position[1];
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // Split the position string into latitude and longitude
-        String[] position = geoData.getLoc().split(",");
-        String latitude = position[0];
-        String longitude = position[1];
 
         // Fill the string with 0's on the left
         latitude = String.format("%.15f", Double.parseDouble(latitude));
@@ -84,5 +64,65 @@ public class PositionController {
                 "%2C" + longitude;
 
         return new OpenStreetMap(mapURL);
+    }
+
+    /**
+     * This method gets the position of the user using the ipify and ipinfo APIs
+     * 
+     * @param ipAddress
+     * @return The position of the user in the format [latitude, longitude]
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws JsonProcessingException
+     * @throws JsonMappingException
+     */
+    private String[] getPosition(String ipAddress)
+            throws IOException, InterruptedException, JsonProcessingException, JsonMappingException {
+        String ipinfoEndPoint = "https://ipinfo.io/" + ipAddress + "/geo";
+
+        GeoData geoData;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(ipinfoEndPoint))
+                .build();
+
+        HttpResponse<String> response = HttpClient.newHttpClient()
+                .send(request, HttpResponse.BodyHandlers.ofString());
+
+        String ipinfoResponse = response.body();
+
+        ObjectMapper mapper = new ObjectMapper();
+        geoData = mapper.readValue(ipinfoResponse, GeoData.class);
+
+        // Split the position string into latitude and longitude
+        String[] position = geoData.getLoc().split(",");
+        return position;
+    }
+
+    /**
+     * This method gets the public IP address from ipify.org
+     *
+     * @return the public IP address
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws JsonProcessingException
+     * @throws JsonMappingException
+     */
+    private String getIpAddress()
+            throws IOException, InterruptedException, JsonProcessingException, JsonMappingException {
+        String ipifyEndPoint = "https://api.ipify.org?format=json";
+
+        String ipAddress;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(ipifyEndPoint))
+                .build();
+
+        HttpResponse<String> response = HttpClient.newHttpClient()
+                .send(request, HttpResponse.BodyHandlers.ofString());
+
+        String ipifyResponse = response.body();
+
+        ObjectMapper mapper = new ObjectMapper();
+        ipAddress = mapper.readTree(ipifyResponse).get("ip").asText();
+        return ipAddress;
     }
 }
