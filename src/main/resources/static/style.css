@@ -39,6 +39,16 @@ h1 {
   border-radius: 4px;
 }
 
+#search-location:hover {
+  box-shadow: 0 5px rgb(102, 102, 102, 0.3);
+}
+
+#search-location:active {
+  background-color: rgb(35, 255, 211);
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
 body {
   /* DRAFT: Igual esta esta otra imagen para escoger en su lugar */
   /* background-image: url("https://www.w3schools.com/w3css/img_lights.jpg"); */
