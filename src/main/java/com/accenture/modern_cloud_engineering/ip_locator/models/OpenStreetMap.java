@@ -32,6 +32,10 @@ public class OpenStreetMap {
         String latitude = location[0];
         String longitude = location[1];
 
+        // Fill the latitude and longitude in the URL with 0's on the right to fill 18
+        // characters
+        latitude = String.format("%-18s", latitude).replace(' ', '0');
+        longitude = String.format("%-18s", longitude).replace(' ', '0');
         // Link examples:
         // "https://www.openstreetmap.org/export/embed.html?bbox=-89.67229843139648%2C20.938113990727835%2C-89.57651138305665%2C20.989409533505412&amp;layer=mapnik&amp;marker=20.963763961508004%2C-89.62440490722656"
         // "https://www.openstreetmap.org/export/embed.html?bbox=-89.62066590785982%2C20.973797313831863%2C-89.61467921733858%2C20.977003035818043&amp;layer=mapnik&amp;marker=20.97540018342022%2C-89.61767256259918"

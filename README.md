@@ -149,7 +149,8 @@ Y se obtiene la siguiente página:
 
 De esta página se puede dar clic en el botón ``¿En dónde estoy?`` para obtener la ubicación del usuario.
 
-Finalmente se obtiene el mapa de la ubicación del usuario.
+Finalmente se obtiene el mapa de la ubicación del usuario.\
+**Nota:** *Por alguna razón el mapa no muestra el marcador de la ubicación del usuario, solo se traslada a las coordenadas de aproximadas.*
 
 Alternativamente se puede usar el siguiente endpoint para obtener el url del mapa:
 
