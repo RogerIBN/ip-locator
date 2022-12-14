@@ -3,6 +3,9 @@ package com.accenture.modern_cloud_engineering.ip_locator.models;
 public class OpenStreetMap {
     private String url;
 
+    public OpenStreetMap() {
+    }
+
     public OpenStreetMap(String url) {
         this.url = url;
     }

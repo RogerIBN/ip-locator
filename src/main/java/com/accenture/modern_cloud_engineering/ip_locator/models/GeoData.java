@@ -1,16 +1,16 @@
 package com.accenture.modern_cloud_engineering.ip_locator.models;
 
 public class GeoData {
-    public String ip;
-    public String city;
-    public String region;
-    public String country;
-    public String loc;
-    public String postal;
-    public String timezone;
-    public String org;
-    public String hostname;
-    public String readme;
+    private String ip;
+    private String city;
+    private String region;
+    private String country;
+    private String loc;
+    private String postal;
+    private String timezone;
+    private String org;
+    private String hostname;
+    private String readme;
 
     public GeoData(
             String ip,
