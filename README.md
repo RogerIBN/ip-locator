@@ -98,7 +98,7 @@ El proyecto deberá compilar con el comando "``mvn clean install``" (instalar Ma
 
 Incluir un archivo ``readme.txt`` con las instrucciones para levantar y probar el código.
 
-**Enviar el proyecto por correo a más tardar el jueves 14 de diciembre.**
+**Enviar el proyecto por correo a más tardar el miércoles 14 de diciembre.**
 
 Tema: UADY | Proyecto Final SpringBoot | **nombre**
 
