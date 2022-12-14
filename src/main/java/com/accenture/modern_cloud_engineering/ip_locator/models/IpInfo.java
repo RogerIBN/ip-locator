@@ -1,6 +1,6 @@
 package com.accenture.modern_cloud_engineering.ip_locator.models;
 
-public class GeoData {
+public class IpInfo {
     private String ip;
     private String city;
     private String region;
@@ -12,7 +12,7 @@ public class GeoData {
     private String hostname;
     private String readme;
 
-    public GeoData(
+    public IpInfo(
             String ip,
             String city,
             String region,
@@ -40,7 +40,7 @@ public class GeoData {
      * able to deserialize the JSON response from the API.
      *
      */
-    public GeoData() {
+    public IpInfo() {
     }
 
     public String getIp() {
@@ -75,10 +75,18 @@ public class GeoData {
         this.country = country;
     }
 
+    /**
+     * @return The latitude is first, followed by
+     *         the longitude. (e.g. {@code "19.4285,-99.1277"}).
+     */
     public String getLoc() {
         return loc;
     }
 
+    /**
+     * @param loc The latitude is first, followed by
+     *            the longitude. (e.g. {@code "19.4285,-99.1277"}).
+     */
     public void setLoc(String loc) {
         this.loc = loc;
     }
