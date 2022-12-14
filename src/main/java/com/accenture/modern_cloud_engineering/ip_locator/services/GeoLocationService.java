@@ -9,8 +9,8 @@ import java.net.http.HttpResponse;
 
 import org.springframework.stereotype.Service;
 
-import com.accenture.modern_cloud_engineering.ip_locator.models.GeoData;
-import com.accenture.modern_cloud_engineering.ip_locator.models.IpInformation;
+import com.accenture.modern_cloud_engineering.ip_locator.models.IpAddress;
+import com.accenture.modern_cloud_engineering.ip_locator.models.IpInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,7 +21,6 @@ public class GeoLocationService {
     /**
      * Gets the position of the user using the ipify and ipinfo APIs
      *
-     * @param positionController
      * @param ipAddress
      * @return The position of the user in the format [latitude, longitude]
      * @throws IOException
@@ -29,25 +28,47 @@ public class GeoLocationService {
      * @throws JsonProcessingException
      * @throws JsonMappingException
      */
-    public GeoData getGeoData(String ipAddress)
+    public IpInfo getIpInfo(String ipAddress)
             throws IOException, InterruptedException, JsonProcessingException, JsonMappingException {
+        // Instantiate a new String variable and set it to the URL of the API endpoint.
         String ipinfoEndPoint = "https://ipinfo.io/" + ipAddress + "/geo";
-        GeoData geoData = null;
+
+        // Instantiate a new IpInfo object and set it to null.
+        IpInfo ipInfo = null;
 
         try {
+            // 1. Make request to ipinfo API
             String ipinfoResponse = this.makeRequest(ipinfoEndPoint);
-            ObjectMapper mapper = new ObjectMapper();
-            geoData = mapper.readValue(ipinfoResponse, GeoData.class);
 
+            // 2. Parse the response into a IpInfo object
+            ObjectMapper mapper = new ObjectMapper();
+            ipInfo = mapper.readValue(ipinfoResponse, IpInfo.class);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
 
-        if (geoData == null) {
-            throw new IOException("The geoData object is null");
+        // If the ipInfo object is null, throw an IOException.
+        if (ipInfo == null) {
+            throw new IOException("The ipInfo object is null");
         }
 
-        return geoData;
+        // Return the ipInfo object.
+        return ipInfo;
+    }
+
+    /**
+     * Alternative method to get the ipInfo object from IpAddress object
+     *
+     * @param ipAddress
+     * @return
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws JsonProcessingException
+     * @throws JsonMappingException
+     */
+    public IpInfo getIpInfo(IpAddress ipAddress)
+            throws IOException, InterruptedException, JsonProcessingException, JsonMappingException {
+        return getIpInfo(ipAddress.getIp());
     }
 
     /**
@@ -59,23 +80,28 @@ public class GeoLocationService {
      * @throws JsonProcessingException
      * @throws JsonMappingException
      */
-    public String getIpAddress()
+    public IpAddress getIpAddress()
             throws IOException, InterruptedException, JsonProcessingException, JsonMappingException {
         String ipifyEndPoint = "https://api.ipify.org?format=json";
-        String ipAddress = null;
+        IpAddress ipInformation = null;
 
         try {
+            // 1. Make request to IPIFY service
             String ipifyResponse = this.makeRequest(ipifyEndPoint);
 
+            // 2. Parse the response into an IpInformation object
             ObjectMapper mapper = new ObjectMapper();
-            IpInformation ipInformation = mapper.readValue(ipifyResponse, IpInformation.class);
-
-            ipAddress = ipInformation.getIp();
+            ipInformation = mapper.readValue(ipifyResponse, IpAddress.class);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
 
-        return ipAddress;
+        // If the ipInformation object is null, throw an IOException.
+        if (ipInformation == null) {
+            throw new IOException("The ipInformation object is null");
+        }
+
+        return ipInformation;
     }
 
     /**
@@ -89,13 +115,16 @@ public class GeoLocationService {
      * @throws InterruptedException
      */
     public String makeRequest(String endPoint) throws URISyntaxException, IOException, InterruptedException {
+        // Create request to the API
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endPoint))
                 .build();
 
+        // Send request to the API and get the response
         HttpResponse<String> response = HttpClient.newHttpClient()
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
+        // Get the response body
         String body = response.body();
         return body;
     }
