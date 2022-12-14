@@ -1,9 +1,9 @@
 package com.accenture.modern_cloud_engineering.ip_locator.models;
 
-public class IpInformation {
+public class IpAddress {
     private String ip;
 
-    public IpInformation(String ip) {
+    public IpAddress(String ip) {
         this.ip = ip;
     }
 
@@ -12,7 +12,7 @@ public class IpInformation {
      * not be
      * able to deserialize the JSON response from the API.
      */
-    public IpInformation() {
+    public IpAddress() {
     }
 
     public String getIp() {
