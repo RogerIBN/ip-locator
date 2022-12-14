@@ -8,7 +8,7 @@ Este es el proyecto final de la clase híbrida llamada Modern Cloud Engineering.
   - [1.1. Integrantes](#11-integrantes)
   - [1.2. Requerimientos del proyecto](#12-requerimientos-del-proyecto)
   - [1.3. Recursos de apoyo](#13-recursos-de-apoyo)
-  - [1.4. Explicación del código](#14-explicación-del-código)
+  - [1.4. Instalación y uso](#14-instalación-y-uso)
 
 ## 1.1. Integrantes
 
@@ -119,7 +119,7 @@ Y como recursos adicionales:
 - [*Spring Boot*][springio]
 - [*Spring Boot Microservices Level 1: Communication and Discovery - Java Brains*][javabrains]
 
-## 1.4. Explicación del código
+## 1.4. Instalación y uso
 
 Para compilar el programa en window se debe ejecutar el siguiente comando en la carpeta ``ip-locator`` (la raíz) del proyecto usando la consola de comandos de ``PowerShell``:
 
@@ -132,13 +132,13 @@ Esto instalará las dependencias y generará el archivo ``.jar`` en la carpeta [
 Para correr el programa se debe ejecutar el siguiente comando:
 
 ```powershell
-java -jar "target\ip_locator-0.0.1-SNAPSHOT.jar"
+.\mvnw "spring-boot:run"
 ```
 
 o también se puede usar el siguiente comando para correr el programa:
 
 ```powershell
-.\mvnw "spring-boot:run"
+java -jar "target\ip_locator-0.0.1-SNAPSHOT.jar"
 ```
 
 Se accede al navegador con la siguiente URL: [http://localhost:8080/](http://localhost:8080/)
@@ -150,6 +150,12 @@ Y se obtiene la siguiente página:
 De esta página se puede dar clic en el botón ``¿En dónde estoy?`` para obtener la ubicación del usuario.
 
 Finalmente se obtiene el mapa de la ubicación del usuario.
+
+Alternativamente se puede usar el siguiente endpoint para obtener el url del mapa:
+
+```http
+GET http://localhost:8080/api/v1/position
+```
 
 [mail:yadira]: mailto:yadira.p.velazquez@accenture.com
 [mail:aguilar]: mailto:j.a.aguilar.puch@accenture.com
