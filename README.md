@@ -11,10 +11,10 @@ Este es el proyecto final de la clase híbrida llamada Modern Cloud Engineering.
   - [1.4. Explicación del código](#14-explicación-del-código)
 
 ## 1.1. Integrantes
-<!-- TODO: Agregar el nombre completo de Sheila -->
+
 - Karla Patricia Cupul Gómez
 - [Roger Isaac Barrera Navarrete](https://www.linkedin.com/in/ribn/)
-- Sheila
+- Alejandro Ochoa Alvarez
 
 ## 1.2. Requerimientos del proyecto
 

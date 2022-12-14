@@ -50,8 +50,6 @@ h1 {
 }
 
 body {
-  /* DRAFT: Igual esta esta otra imagen para escoger en su lugar */
-  /* background-image: url("https://www.w3schools.com/w3css/img_lights.jpg"); */
   background-image: url("../img/tm-astro-bg.jpg");
   background-repeat: repeat;
   background-size: cover;
