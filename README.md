@@ -121,6 +121,36 @@ Y como recursos adicionales:
 
 ## 1.4. Explicación del código
 
+Para compilar el programa en window se debe ejecutar el siguiente comando en la carpeta ``ip-locator`` (la raíz) del proyecto usando la consola de comandos de ``PowerShell``:
+
+```powershell
+.\mvnw clean install
+```
+
+Esto instalará las dependencias y generará el archivo ``.jar`` en la carpeta [``target``](target).
+
+Para correr el programa se debe ejecutar el siguiente comando:
+
+```powershell
+java -jar "target\ip_locator-0.0.1-SNAPSHOT.jar"
+```
+
+o también se puede usar el siguiente comando para correr el programa:
+
+```powershell
+.\mvnw "spring-boot:run"
+```
+
+Se accede al navegador con la siguiente URL: [http://localhost:8080/](http://localhost:8080/)
+
+Y se obtiene la siguiente página:
+
+![Página de inicio][capturaapp]
+
+De esta página se puede dar clic en el botón ``¿En dónde estoy?`` para obtener la ubicación del usuario.
+
+Finalmente se obtiene el mapa de la ubicación del usuario.
+
 [mail:yadira]: mailto:yadira.p.velazquez@accenture.com
 [mail:aguilar]: mailto:j.a.aguilar.puch@accenture.com
 [url:arquitecturajava]: https://cursos.arquitecturajava.com/p/spring-boot1
@@ -128,3 +158,4 @@ Y como recursos adicionales:
 [url:BrainDataCenter]: https://youtube.com/playlist?list=PLCIjncxyvEHbSAhlMhSrMROJtg1s_tlG8
 [javabrains]: https://youtube.com/playlist?list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas
 [springio]: https://spring.io/projects/spring-boot
+[capturaapp]: img/captura_app.jpeg
