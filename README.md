@@ -8,12 +8,12 @@ Este es el proyecto final de la clase híbrida llamada Modern Cloud Engineering.
   - [1.1. Integrantes](#11-integrantes)
   - [1.2. Requerimientos del proyecto](#12-requerimientos-del-proyecto)
   - [1.3. Recursos de apoyo](#13-recursos-de-apoyo)
-  - [1.4. Instalación y uso](#14-instalación-y-uso)
+  - [1.4. Levantamiento y uso](#14-levantamiento-y-uso)
 
 ## 1.1. Integrantes
 
 - Karla Patricia Cupul Gómez
-- [Roger Isaac Barrera Navarrete](https://www.linkedin.com/in/ribn/)
+- [Roger Isaac Barrera Navarrete][url:LI-Barrera]
 - Alejandro Ochoa Alvarez
 
 ## 1.2. Requerimientos del proyecto
@@ -22,7 +22,7 @@ Diseñar una página web que muestre tu dirección en un mapa en base a la IP
 
 La página web debe de ser de la siguiente manera:
 
-![Captura de ejemplo del resultado de la aplicación](img/example.png)
+![Captura de ejemplo del resultado de la aplicación][img:appExample]
 
 Para ello se deberá elaborar una aplicación en *Spring Boot* que cumpla con dos cosas:
 
@@ -31,7 +31,7 @@ Para ello se deberá elaborar una aplicación en *Spring Boot* que cumpla con do
 
 El servicio por desarrollar deberá hacer lo siguiente
 
-1. Invocar el API publica [https://api.ipify.org/?format=json](https://api.ipify.org/?format=json) con la que obtendrá la dirección IP desde la cual sale la petición.\
+1. Invocar el API publica [https://api.ipify.org/?format=json][url:APIipify] con la que obtendrá la dirección IP desde la cual sale la petición.\
 Ejemplo de respuesta:
 
 ```json
@@ -40,7 +40,7 @@ Ejemplo de respuesta:
 }
 ```
 
-2. Usar esa dirección IP para invocar el servicio [https://ipinfo.io/187.188.9.161/geo](https://ipinfo.io/187.188.9.161/geo), que obtendrá entre otras cosas la latitud y longitud ejemplo de respuesta
+2. Usar esa dirección IP para invocar el servicio [https://ipinfo.io/187.188.9.161/geo][url:API-ipinfo], que obtendrá entre otras cosas la latitud y longitud ejemplo de respuesta
 
 ```json
 {
@@ -57,7 +57,7 @@ Ejemplo de respuesta:
 }
 ```
 
-3. Usar la longitud y latitud para armar una URL que será regresada por el servicio para generar la URL del mapa usando el API de *openstreetmap*, [https://www.openstreetmap.org/?mlat=19.4285&mlon=-99.1277#map=18/19.42850/-99.12770&layers=N](https://www.openstreetmap.org/?mlat=19.4285&mlon=-99.1277#map=18/19.42850/-99.12770&layers=N)\
+3. Usar la longitud y latitud para armar una URL que será regresada por el servicio para generar la URL del mapa usando el API de *openstreetmap*, [https://www.openstreetmap.org/?mlat=19.4285&mlon=-99.1277#map=18/19.42850/-99.12770&layers=N][url:openStreetMap]\
 Este valor lo regresara en un json de la siguiente forma
 
 ```json
@@ -83,8 +83,7 @@ sequenceDiagram
     participant API ipify
     participant API ipinfo
 
-    usr->>Página web: Clic en el botón
-    activate Página web
+    usr->>+Página web: Clic en el botón
     activate usr
     Página web->>+LocationService: GET /location
     LocationService->>+API ipify: GET https://api.ipify.org/?format=json
@@ -93,8 +92,7 @@ sequenceDiagram
     API ipinfo-->>-LocationService: Información de la IP
     LocationService->>LocationService: Generar la URL del mapa
     LocationService-->>-Página web: La URL del mapa
-    Página web->>iframe: Cambiar la URL del iframe
-    deactivate Página web
+    Página web->>-iframe: Cambiar la URL del iframe
     deactivate usr
 ```
 
@@ -108,9 +106,9 @@ Incluir un archivo ``readme.txt`` con las instrucciones para levantar y probar e
 
 Tema: UADY | Proyecto Final SpringBoot | **nombre**
 
-Enviar a: [j.a.aguilar.puch@accenture.com][mail:aguilar]
+Enviar a: [j.a.aguilar.puch@accenture.com][mail:Aguilar]
 
-Con copia: [yadira.p.velazquez@accenture.com][mail:yadira]
+Con copia: [yadira.p.velazquez@accenture.com][mail:Yadira]
 
 ## 1.3. Recursos de apoyo
 
@@ -122,10 +120,10 @@ Se utilizarán los siguientes recursos para el desarrollo del proyecto:
 
 Y como recursos adicionales:
 
-- [*Spring Boot*][springio]
-- [*Spring Boot Microservices Level 1: Communication and Discovery - Java Brains*][javabrains]
+- [*Spring Boot*][url:springio]
+- [*Spring Boot Microservices Level 1: Communication and Discovery - Java Brains*][url:javaBrains]
 
-## 1.4. Instalación y uso
+## 1.4. Levantamiento y uso
 
 Para compilar el programa en window se debe ejecutar el siguiente comando en la carpeta ``ip-locator`` (la raíz) del proyecto usando la consola de comandos de ``PowerShell``:
 
@@ -147,11 +145,11 @@ o también se puede usar el siguiente comando para correr el programa:
 java -jar "target\ip_locator-0.0.1-SNAPSHOT.jar"
 ```
 
-Se accede al navegador con la siguiente URL: [http://localhost:8080/](http://localhost:8080/)
+Se accede al navegador con la siguiente URL: [http://localhost:8080/][url:localHost]
 
 Y se obtiene la siguiente página:
 
-![Página de inicio][capturaapp]
+![Página de inicio][img:capturaApp]
 
 De esta página se puede dar clic en el botón ``¿En dónde estoy?`` para obtener la ubicación del usuario.
 
@@ -164,11 +162,17 @@ Alternativamente se puede usar el siguiente endpoint para obtener el url del map
 GET http://localhost:8080/api/v1/position
 ```
 
-[mail:yadira]: mailto:yadira.p.velazquez@accenture.com
-[mail:aguilar]: mailto:j.a.aguilar.puch@accenture.com
+[img:appExample]: img/example.png
+[img:capturaApp]: img/captura_app.jpeg
+[mail:Aguilar]: mailto:j.a.aguilar.puch@accenture.com
+[mail:Yadira]: mailto:yadira.p.velazquez@accenture.com
+[url:API-ipinfo]: https://ipinfo.io/187.188.9.161/geo
+[url:APIipify]: https://api.ipify.org/?format=json
 [url:arquitecturajava]: https://cursos.arquitecturajava.com/p/spring-boot1
-[url:MitoCode]: https://youtube.com/playlist?list=PLvimn1Ins-40wR4PC-YtTQ5TKt3vRrVwl
 [url:BrainDataCenter]: https://youtube.com/playlist?list=PLCIjncxyvEHbSAhlMhSrMROJtg1s_tlG8
-[javabrains]: https://youtube.com/playlist?list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas
-[springio]: https://spring.io/projects/spring-boot
-[capturaapp]: img/captura_app.jpeg
+[url:javaBrains]: https://youtube.com/playlist?list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas
+[url:LI-Barrera]: https://www.linkedin.com/in/ribn/
+[url:localHost]: http://localhost:8080/
+[url:MitoCode]: https://youtube.com/playlist?list=PLvimn1Ins-40wR4PC-YtTQ5TKt3vRrVwl
+[url:openStreetMap]: https://www.openstreetmap.org/?mlat=19.4285&mlon=-99.1277#map=18/19.42850/-99.12770&layers=N
+[url:springio]: https://spring.io/projects/spring-boot
