@@ -2,8 +2,6 @@
 
 # 1. Proyecto final - SpringBoot - ip-locator
 
-Este es el proyecto final de la clase híbrida llamada Modern Cloud Engineering.
-
 - [1. Proyecto final - SpringBoot - ip-locator](#1-proyecto-final---springboot---ip-locator)
   - [1.1. Integrantes](#11-integrantes)
   - [1.2. Requerimientos del proyecto](#12-requerimientos-del-proyecto)
