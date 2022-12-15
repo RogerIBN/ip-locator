@@ -32,7 +32,13 @@ Para ello se deberá elaborar una aplicación en *Spring Boot* que cumpla con do
 El servicio por desarrollar deberá hacer lo siguiente
 
 1. Invocar el API publica [https://api.ipify.org/?format=json](https://api.ipify.org/?format=json) con la que obtendrá la dirección IP desde la cual sale la petición.\
-Ejemplo de respuesta: ``{"ip":"187.188.9.161"}``
+Ejemplo de respuesta:
+
+```json
+{
+  "ip":"187.188.9.161"
+}
+```
 
 2. Usar esa dirección IP para invocar el servicio [https://ipinfo.io/187.188.9.161/geo](https://ipinfo.io/187.188.9.161/geo), que obtendrá entre otras cosas la latitud y longitud ejemplo de respuesta
 
@@ -150,7 +156,7 @@ Y se obtiene la siguiente página:
 De esta página se puede dar clic en el botón ``¿En dónde estoy?`` para obtener la ubicación del usuario.
 
 Finalmente se obtiene el mapa de la ubicación del usuario.\
-**Nota:** *Por alguna razón el mapa no muestra el marcador de la ubicación del usuario, solo se traslada a las coordenadas de aproximadas.*
+**Nota:** *Por alguna razón el mapa no muestra el marcador de la ubicación del usuario, solo se traslada a las coordenadas aproximadas.*
 
 Alternativamente se puede usar el siguiente endpoint para obtener el url del mapa:
 
