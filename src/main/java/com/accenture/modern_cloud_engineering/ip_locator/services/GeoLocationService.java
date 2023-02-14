@@ -83,7 +83,7 @@ public class GeoLocationService {
     public IpAddress getIpAddress()
             throws IOException, InterruptedException, JsonProcessingException, JsonMappingException {
         String ipifyEndPoint = "https://api.ipify.org?format=json";
-        IpAddress ipInformation = null;
+        IpAddress ipAddress = null;
 
         try {
             // 1. Make request to IPIFY service
@@ -91,17 +91,17 @@ public class GeoLocationService {
 
             // 2. Parse the response into an IpInformation object
             ObjectMapper mapper = new ObjectMapper();
-            ipInformation = mapper.readValue(ipifyResponse, IpAddress.class);
+            ipAddress = mapper.readValue(ipifyResponse, IpAddress.class);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
 
         // If the ipInformation object is null, throw an IOException.
-        if (ipInformation == null) {
+        if (ipAddress == null) {
             throw new IOException("The ipInformation object is null");
         }
 
-        return ipInformation;
+        return ipAddress;
     }
 
     /**
