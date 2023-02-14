@@ -116,17 +116,14 @@ public class GeoLocationService {
      */
     public String makeRequest(String endPoint) throws URISyntaxException, IOException, InterruptedException {
         // Create request to the API
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endPoint))
-                .build();
+        HttpRequest request = HttpRequest.newBuilder(URI.create(endPoint)).build();
 
         // Send request to the API and get the response
         HttpResponse<String> response = HttpClient.newHttpClient()
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
         // Get the response body
-        String body = response.body();
-        return body;
+        return response.body();
     }
 
 }
