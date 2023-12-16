@@ -29,7 +29,7 @@ Para ello se deberá elaborar una aplicación en *Spring Boot* que cumpla con do
 
 El servicio por desarrollar deberá hacer lo siguiente
 
-1. Invocar el API publica [https://api.ipify.org/?format=json][url:APIipify] con la que obtendrá la dirección IP desde la cual sale la petición.\
+1. Invocar el API publica [`https://api.ipify.org/?format=json`][url:APIipify] con la que obtendrá la dirección IP desde la cual sale la petición.\
 Ejemplo de respuesta:
 
 ```json
@@ -38,7 +38,7 @@ Ejemplo de respuesta:
 }
 ```
 
-2. Usar esa dirección IP para invocar el servicio [https://ipinfo.io/187.188.9.161/geo][url:API-ipinfo], que obtendrá entre otras cosas la latitud y longitud ejemplo de respuesta.
+2. Usar esa dirección IP para invocar el servicio [`https://ipinfo.io/187.188.9.161/geo`][url:API-ipinfo], que obtendrá entre otras cosas la latitud y longitud ejemplo de respuesta.
 
 ```json
 {
@@ -55,7 +55,7 @@ Ejemplo de respuesta:
 }
 ```
 
-3. Usar la longitud y latitud para armar una URL que será regresada por el servicio para generar la URL del mapa usando el API de *openstreetmap*, [https://www.openstreetmap.org/?mlat=19.4285&mlon=-99.1277#map=18/19.42850/-99.12770&layers=N][url:openStreetMap]\
+3. Usar la longitud y latitud para armar una URL que será regresada por el servicio para generar la URL del mapa usando el API de *openstreetmap*, [`https://www.openstreetmap.org/?mlat=19.4285&mlon=-99.1277#map=18/19.42850/-99.12770&layers=N`][url:openStreetMap]\
 Este valor lo regresara en un json de la siguiente forma:
 
 ```json
@@ -143,7 +143,7 @@ o también se puede usar el siguiente comando para correr el programa:
 java -jar "target\ip_locator-0.0.1-SNAPSHOT.jar"
 ```
 
-Se accede al navegador con la siguiente URL: [http://localhost:8080/][url:localHost]
+Se accede al navegador con la siguiente URL: [`http://localhost:8080/`][url:localHost]
 
 Y se obtiene la siguiente página:
 
