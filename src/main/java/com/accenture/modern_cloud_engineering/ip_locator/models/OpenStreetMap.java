@@ -41,7 +41,7 @@ public class OpenStreetMap {
         // Create the URL
 
         String urlFormat = "https://www.openstreetmap.org/export/embed.html?bbox=%2$s%%2C%1$s%%2C%2$s%%2C%1$s&amp;layer=mapnik&amp;marker=%1$s%%2C%2$s";
-        return String.format(urlFormat, latitude, longitude);
+        return urlFormat.formatted(latitude, longitude);
     }
 
     public String getUrl() {

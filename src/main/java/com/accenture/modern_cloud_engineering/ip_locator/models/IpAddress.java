@@ -9,8 +9,7 @@ public class IpAddress {
 
     /**
      * Important to have a default constructor for IpInformation. Otherwise it will
-     * not be
-     * able to deserialize the JSON response from the API.
+     * not be able to deserialize the JSON response from the API.
      */
     public IpAddress() {
     }
